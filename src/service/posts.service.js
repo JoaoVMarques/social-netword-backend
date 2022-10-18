@@ -5,6 +5,11 @@ const getAll = () => {
   return { error: null, message: posts };
 };
 
+const addPost = (post) => {
+  console.log(post);
+};
+
 module.exports = {
   getAll,
+  addPost,
 };
