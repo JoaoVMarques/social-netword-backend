@@ -1,12 +1,14 @@
 const { postsService } = require('../service');
 
-const getAll = (_req, res) => {
-  const message = postsService.getAll();
+const getAll = async (_req, res) => {
+  const message = await postsService.getAll();
+  console.log(message);
   res.status(200).json(message);
 };
 
-const addPost = (req, res) => {
-  const message = postsService.addPost(req.body);
+const addPost = async (req, res) => {
+  const message = await postsService.addPost(req.body);
+  console.log(message);
   res.status(201).json(message);
 };
 

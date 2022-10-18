@@ -13,7 +13,7 @@
   },
   "scripts": {
     "dev": "nodemon src/server.js",
-    "restore": "cp src/placeholders/databackup.js src/placeholders/data.js"
+    "restore": "cp src/placeholders/databackup.json src/placeholders/data.json"
   },
   "keywords": [],
   "author": "",
