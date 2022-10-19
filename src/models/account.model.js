@@ -12,6 +12,13 @@ const create = async (account) => {
   return 'Conta criada com sucesso!';
 };
 
+const login = async (credentials) => {
+  const accounts = JSON.parse(await fs.readFile(fileName));
+  const accountMatchEmail = accounts.find(({ email }) => email === credentials.email);
+  return accountMatchEmail;
+};
+
 module.exports = {
   create,
+  login,
 };

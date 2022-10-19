@@ -10,6 +10,6 @@ fieldsValidation,
 emailValidation,
 passwordValidation, accountController.create);
 
-// router.get('/:id', accountController.get);
+router.post('/login', accountController.login);
 
 module.exports = router;
