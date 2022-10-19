@@ -1,12 +1,10 @@
-// const get = async (_req, res) => {
-//   res.status(200).json({ email: 'test@gmail.com', user: 'test2', password: '1232323232' });
-// };
+const { accountService } = require('../service');
 
-const createAccount = async (_req, res) => {
-  res.status(201).json({ message: 'criada com sucesso' });
+const create = async (req, res) => {
+  const message = await accountService.create(req.body);
+  res.status(201).json(message);
 };
 
 module.exports = {
-  // get,
-  createAccount,
+  create,
 };

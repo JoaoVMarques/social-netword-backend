@@ -8,8 +8,7 @@ const router = express.Router();
 router.post('/',
 fieldsValidation,
 emailValidation,
-passwordValidation,
-accountController.createAccount);
+passwordValidation, accountController.create);
 
 // router.get('/:id', accountController.get);
 
