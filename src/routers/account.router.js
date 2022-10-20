@@ -10,6 +10,11 @@ fieldsValidation,
 emailValidation,
 passwordValidation, accountController.create);
 
+// Precisa ser implementado os middlewares do login Objeto:
+// {
+//   "email": "admin@admin.com",
+//   "password": "admin123"
+// }
 router.post('/login', accountController.login);
 
 module.exports = router;

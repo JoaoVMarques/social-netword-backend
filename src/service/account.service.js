@@ -1,4 +1,4 @@
-// const { accountModel } = require('../models');
+const { Account } = require('../models');
 
 const create = async (account) => {
   const accountObjectWithId = account;
@@ -9,10 +9,10 @@ const create = async (account) => {
 };
 
 const login = async (credentials) => {
-  // const credentialsMatch = await accountModel.login(credentials);
-  const credentialsMatch = true;
+  const { email, password } = credentials;
+  const userAccount = await Account.findOne({ where: { email, password } });
 
-  if (!credentialsMatch || credentials.password !== credentialsMatch.password) {
+  if (!userAccount) {
     const message = 'login não autorizado';
     return { message, error: 'CREDENTIALS_DOESNT_MATCH' };
   }
