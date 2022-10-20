@@ -1,5 +1,7 @@
+const { Post } = require('../models');
+
 const getAll = async () => {
-  const message = 'PLACEHOLDER';
+  const message = await Post.findAll();
   return { message, error: null };
 };
 
