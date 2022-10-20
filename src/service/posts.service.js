@@ -5,21 +5,10 @@ const getAll = async () => {
   return { message, error: null };
 };
 
-const createPost = (message) => {
-  const createdPost = {
-    postId: 0,
-    user: 'mainUser',
-    content: message,
-    hour: '00:00',
-    date: '08/10/2022',
-  };
-  return createdPost;
-};
-
 const addPost = async (post) => {
-  const postObject = createPost(post.message);
-  // const message = await postsModel.addPost(postObject);
-  const message = 'PLACEHOLDER';
+  const content = post.message;
+  const publishDate = new Date();
+  const message = await Post.create({ username: 'mainUser', content, publishDate });
   return { message, error: null };
 };
 
