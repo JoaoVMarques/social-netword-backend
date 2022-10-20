@@ -1,7 +1,5 @@
-const { postsModel } = require('../models');
-
 const getAll = async () => {
-  const message = await postsModel.getAll();
+  const message = 'PLACEHOLDER';
   return { message, error: null };
 };
 
@@ -18,7 +16,8 @@ const createPost = (message) => {
 
 const addPost = async (post) => {
   const postObject = createPost(post.message);
-  const message = await postsModel.addPost(postObject);
+  // const message = await postsModel.addPost(postObject);
+  const message = 'PLACEHOLDER';
   return { message, error: null };
 };
 

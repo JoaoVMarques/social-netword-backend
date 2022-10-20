@@ -1,1 +1,6 @@
 node_modules/
+
+# DB
+models/
+migrations/
+seeders/

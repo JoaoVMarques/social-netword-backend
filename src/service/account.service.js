@@ -1,14 +1,16 @@
-const { accountModel } = require('../models');
+// const { accountModel } = require('../models');
 
 const create = async (account) => {
   const accountObjectWithId = account;
   accountObjectWithId.Id = 0;
-  const message = await accountModel.create(accountObjectWithId);
+  // const message = await accountModel.create(accountObjectWithId);
+  const message = 'PLACEHOLDER';
   return { message, error: null };
 };
 
 const login = async (credentials) => {
-  const credentialsMatch = await accountModel.login(credentials);
+  // const credentialsMatch = await accountModel.login(credentials);
+  const credentialsMatch = true;
 
   if (!credentialsMatch || credentials.password !== credentialsMatch.password) {
     const message = 'login não autorizado';
