@@ -2,7 +2,8 @@ const { Account } = require('../models');
 
 const create = async (account) => {
   const { username, email, password } = account;
-  await Account.create({ username, email, password });
+  const creationDate = new Date();
+  await Account.create({ username, email, password, creationDate, active: true });
   const message = 'Conta criada com sucesso';
   return { message, error: null };
 };
