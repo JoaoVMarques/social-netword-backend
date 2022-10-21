@@ -1,10 +1,9 @@
 const { Account } = require('../models');
 
 const create = async (account) => {
-  const accountObjectWithId = account;
-  accountObjectWithId.Id = 0;
-  // const message = await accountModel.create(accountObjectWithId);
-  const message = 'PLACEHOLDER';
+  const { username, email, password } = account;
+  await Account.create({ username, email, password });
+  const message = 'Conta criada com sucesso';
   return { message, error: null };
 };
 
@@ -17,10 +16,16 @@ const login = async (credentials) => {
     return { message, error: 'CREDENTIALS_DOESNT_MATCH' };
   }
   const message = 'login autorizado';
-  return { message, error: null };
+  return { user: userAccount.dataValues, message, error: null };
+};
+
+const getById = async (id) => {
+  const userAccount = await Account.findOne({ where: { id } });
+  return userAccount;
 };
 
 module.exports = {
   create,
   login,
+  getById,
 };

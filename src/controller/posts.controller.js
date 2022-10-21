@@ -6,7 +6,7 @@ const getAll = async (_req, res) => {
 };
 
 const addPost = async (req, res) => {
-  const message = await postsService.addPost(req.body);
+  const message = await postsService.addPost(req.body, req.account.username);
   res.status(201).json(message);
 };
 

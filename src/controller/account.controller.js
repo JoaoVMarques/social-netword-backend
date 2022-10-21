@@ -1,4 +1,7 @@
+const jwt = require('jsonwebtoken');
 const { accountService } = require('../service');
+
+const secret = process.env.JWT_SECRET;
 
 const create = async (req, res) => {
   const message = await accountService.create(req.body);
@@ -6,11 +9,19 @@ const create = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  const { message, error } = await accountService.login(req.body);
+  const { user, message, error } = await accountService.login(req.body);
   if (error) {
     return res.status(400).json({ message, error });
   }
-  return res.status(200).json({ message });
+
+  const jwtConfig = {
+    expiresIn: '7d',
+    algorithm: 'HS256',
+  };
+
+  const token = jwt.sign({ data: { userId: user.id } }, secret, jwtConfig);
+
+  return res.status(200).json({ message, token });
 };
 
 module.exports = {
