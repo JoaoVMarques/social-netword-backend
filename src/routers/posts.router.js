@@ -1,5 +1,5 @@
 const express = require('express');
-const { postsController } = require('../controller');
+const { postsController } = require('../controllers');
 const validateJWT = require('../middlewares/JWT/validateJWT');
 
 const router = express.Router();

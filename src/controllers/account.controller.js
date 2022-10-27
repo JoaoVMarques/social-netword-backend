@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { accountService } = require('../service');
+const { accountService } = require('../services');
 
 const secret = process.env.JWT_SECRET;
 
