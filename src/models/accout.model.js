@@ -5,6 +5,9 @@ const AccountSchema = (Sequelize, DataTypes) => {
     password: DataTypes.STRING,
     creationDate: DataTypes.DATE,
     active: DataTypes.BOOLEAN,
+  },
+  {
+    underscored: true,
   })
   return AccountTable;
 }
